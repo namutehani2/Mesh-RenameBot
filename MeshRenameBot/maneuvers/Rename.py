@@ -249,6 +249,7 @@ class RenameManeuver(DefaultManeuver):
                     caption=new_file_name,
                     force_document=is_force,
                     progress=progress_for_pyrogram,
+                    protect_content=True,
                     progress_args=(
                         f"Uploading the file {new_file_name}",
                         progress,
@@ -256,8 +257,7 @@ class RenameManeuver(DefaultManeuver):
                         get_var("SLEEP_SECS"),
                         self._client,
                         self._unique_id,
-                        markup
-                    )
+                        markup                    )
                 )
             if rmsg is None:
                 await progress.edit_text("Upload Cancled by the user.")
